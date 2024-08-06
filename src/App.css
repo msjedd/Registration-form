@@ -1,0 +1,43 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  padding: 3rem;
+}
+
+input {
+  width: 100%;
+  padding: 0.5rem;
+  margin: 0.5rem;
+}
+
+:-ms-input-placeholder {
+  font-family: inherit;
+}
+
+::placeholder {
+  font-family: inherit;
+  font-weight: 300;
+}
+
+button {
+  font-family: inherit;
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+  background: none;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: rgb(8, 8, 110);
+}
