@@ -18,8 +18,8 @@ function Inputs() {
   const [visible, setVisible] = useState(false);
 
   const handleChange = function (e) {
-    const newInput = e.target.value;
-    setInputs({ ...inputs, [e.target.name]: newInput });
+    const { name, value } = e.target;
+    setInputs({ ...inputs, [name]: value });
   };
 
   const handleClick = function (e) {
@@ -31,14 +31,23 @@ function Inputs() {
     const newErrors = ValidateForm(inputs);
     setErrors(newErrors);
 
-    if (errors) {
-      alert("success!");
+    if (Object.keys(newErrors).length === 0) {
+      alert("Form submitted successfully!");
+    } else {
+      console.log("Form submission failed due to validation errors.");
     }
     handleClear();
   };
 
   const handleClear = function () {
-    setInputs("");
+    setInputs({
+      name: "",
+      phone: "",
+      email: "",
+      password: "",
+      password2: "",
+      code: "",
+    });
   };
 
   return (
@@ -105,10 +114,10 @@ function Inputs() {
         />
         {errors.password2 && <p style={{ color: "red" }}>{errors.password2}</p>}
 
-        <FontAwesomeIcon
+        {/* <FontAwesomeIcon
           icon={visible ? faEye : faEyeSlash}
           onClick={handleClick}
-        />
+        /> */}
 
         <input
           type="number"

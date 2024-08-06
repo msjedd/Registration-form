@@ -2,8 +2,9 @@ import React from "react";
 
 export default function ValidateForm(data) {
   const errors = {};
-  if (!data.name.trim()) {
+  if (!data.name) {
     errors.name = "Please enter your full name";
+    console.log(data.name);
   }
   if (!data.phone) {
     errors.phone = "Please enter your phone number";
