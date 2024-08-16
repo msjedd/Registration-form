@@ -1,12 +1,11 @@
 import "./App.css";
-import Input from "./components/Input";
+import Form from "./components/Form";
 
 function App() {
   return (
     <>
       <h1>Registration Form</h1>
-      <Input />
-      {/* <button type="submit">Submit</button> */}
+      <Form />
     </>
   );
 }

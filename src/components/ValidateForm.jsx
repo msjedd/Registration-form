@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ValidateForm(data) {
+export default function validateForm(data) {
   const errors = {};
   if (!data.name) {
     errors.name = "Please enter your full name";
