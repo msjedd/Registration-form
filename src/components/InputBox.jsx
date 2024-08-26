@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Input({
+export default function InputBox({
   type,
   value,
   id,
@@ -10,8 +10,8 @@ export default function Input({
 }) {
   return (
     <>
-      <label htmlFor="{id}">{id}</label>
-      <Input
+      {/* <label htmlFor="{id}">{id}</label> */}
+      <input
         type={type}
         name={name}
         id={id}

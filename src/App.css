@@ -11,10 +11,24 @@ body {
   font-weight: 400;
   font-style: normal;
   padding: 3rem;
+  max-width: 80vw;
+  margin: auto;
 }
 
 h1 {
-  color: rgb(2, 2, 170);
+  color: rgba(11, 175, 197, 0.925);
+  text-align: center;
+}
+
+h3 {
+  margin: 1rem 0;
+  text-align: center;
+  color: rgb(151, 151, 134);
+}
+
+p {
+  padding-left: 0.5rem;
+  font-size: small;
 }
 
 input {
@@ -22,6 +36,15 @@ input {
   padding: 0.5rem;
   margin: 0.5rem;
   border-radius: 4px;
+  border: 2px solid rgb(204, 204, 204);
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: 0.2s;
+  transition: 0.5s;
+}
+
+input:focus {
+  border: 3px solid rgb(85, 85, 85);
 }
 
 :-ms-input-placeholder {
@@ -37,14 +60,27 @@ button {
   font-family: inherit;
   padding: 0.5rem;
   margin-left: 0.5rem;
-  background-color: rgb(41, 31, 31);
-  color: azure;
+  margin-top: 1rem;
+  background-color: rgb(59, 50, 50);
+  color: rgb(240, 255, 255);
+  border: 1px solid transparent;
   border-radius: 12px;
   cursor: pointer;
   width: 100%;
+  transition: box-shadow 1s;
 }
 
 button:hover {
   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.icon-box {
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  bottom: 1rem;
+  right: 2%;
 }

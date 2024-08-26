@@ -1,13 +1,8 @@
 import React, { useState } from "react";
 import validateForm from "./validateForm";
-import Input from "./Input";
+import InputBox from "./InputBox";
 import Button from "./Button";
 import Icon from "./Icon";
-import { icon } from "@fortawesome/fontawesome-svg-core";
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-// import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 export default function Form() {
   const [inputs, setInputs] = useState({
@@ -20,15 +15,7 @@ export default function Form() {
   });
 
   const [errors, setErrors] = useState({});
-
-  // const [icon1, setIcon1] = useState(faEyeSlash);
-  // const [icon2, setIcon2] = useState(faEyeSlash);
-
   const [visible, setVisible] = useState(false);
-  // const [icons, setIcons] = useState({
-  //   icon1: "faEyeSlash",
-  //   icon2: "faEyeSlash",
-  // });
 
   const handleChange = function (e) {
     const { name, value } = e.target;
@@ -37,9 +24,6 @@ export default function Form() {
 
   const handleClick = function () {
     setVisible(!visible);
-    console.log(visible.icon2);
-
-    // setIcons(!icons);
   };
 
   const handleSubmit = function (e) {
@@ -52,26 +36,26 @@ export default function Form() {
     } else {
       console.log("Form submission failed due to validation errors.");
     }
-    return;
+    // return;
 
-    // handleClear();
+    handleClear();
   };
 
-  // const handleClear = function () {
-  //   setInputs({
-  //     name: "",
-  //     phone: "",
-  //     email: "",
-  //     password: "",
-  //     password2: "",
-  //     code: "",
-  //   });
-  // };
+  const handleClear = function () {
+    setInputs({
+      name: "",
+      phone: "",
+      email: "",
+      password: "",
+      password2: "",
+      code: "",
+    });
+  };
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <Input
+        <InputBox
           type="text"
           name="name"
           id="name"
@@ -82,7 +66,7 @@ export default function Form() {
         />
         {errors.name && <p style={{ color: "red" }}>{errors.name}</p>}
 
-        <Input
+        <InputBox
           type="number"
           name="phone"
           id="phone"
@@ -93,7 +77,7 @@ export default function Form() {
         />
         {errors.phone && <p style={{ color: "red" }}>{errors.phone}</p>}
 
-        <Input
+        <InputBox
           type="email"
           name="email"
           id="email"
@@ -105,7 +89,7 @@ export default function Form() {
 
         {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
 
-        <Input
+        <InputBox
           type={visible ? "text" : "password"}
           name="password"
           id="password"
@@ -114,22 +98,22 @@ export default function Form() {
           onChange={handleChange}
           // required
         />
-        {errors.password && <p style={{ color: "red" }}>{errors.password}</p>}
         <Icon onClick={handleClick} visible={visible} />
+        {errors.password && <p style={{ color: "red" }}>{errors.password}</p>}
 
-        <Input
+        <InputBox
           type={visible ? "text" : "password"}
           name="password2"
           id="password2"
           placeholder="Confirm your password"
           value={inputs.password2}
           onChange={handleChange}
-          // required
+          required
         />
+        <Icon onClick={handleClick} visible={visible} />
         {errors.password2 && <p style={{ color: "red" }}>{errors.password2}</p>}
-        <Icon onClick={handleClick} visible={visible} onTap />
 
-        <Input
+        <InputBox
           type="number"
           name="code"
           id="code"
