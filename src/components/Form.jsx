@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import validateForm from "./validateForm";
-import InputBox from "./InputBox";
 import Button from "./Button";
-import Icon from "./Icon";
+import InputBox from "./InputBox";
+import PasswordInput from "./PasswordInput";
+import validateForm from "./validateForm";
 
 export default function Form() {
   const [inputs, setInputs] = useState({
@@ -15,16 +15,16 @@ export default function Form() {
   });
 
   const [errors, setErrors] = useState({});
-  const [visible, setVisible] = useState(false);
+  // const [visible, setVisible] = useState(false);
 
   const handleChange = function (e) {
     const { name, value } = e.target;
     setInputs({ ...inputs, [name]: value });
   };
 
-  const handleClick = function () {
-    setVisible(!visible);
-  };
+  // const handleClick = function () {
+  //   setVisible(!visible);
+  // };
 
   const handleSubmit = function (e) {
     e.preventDefault();
@@ -65,7 +65,6 @@ export default function Form() {
           // required
         />
         {errors.name && <p style={{ color: "red" }}>{errors.name}</p>}
-
         <InputBox
           type="number"
           name="phone"
@@ -89,7 +88,7 @@ export default function Form() {
 
         {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
 
-        <InputBox
+        {/* <InputBox
           type={visible ? "text" : "password"}
           name="password"
           id="password"
@@ -98,10 +97,11 @@ export default function Form() {
           onChange={handleChange}
           // required
         />
-        <Icon onClick={handleClick} visible={visible} />
+        <Icon onClick={handleClick} visible={visible} /> */}
+        <PasswordInput />
         {errors.password && <p style={{ color: "red" }}>{errors.password}</p>}
 
-        <InputBox
+        {/* <InputBox
           type={visible ? "text" : "password"}
           name="password2"
           id="password2"
@@ -110,7 +110,8 @@ export default function Form() {
           onChange={handleChange}
           required
         />
-        <Icon onClick={handleClick} visible={visible} />
+        <Icon onClick={handleClick} visible={visible} /> */}
+        <PasswordInput />
         {errors.password2 && <p style={{ color: "red" }}>{errors.password2}</p>}
 
         <InputBox
